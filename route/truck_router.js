@@ -23,13 +23,18 @@ module.exports = function(router) {
 
 	router.route('/trucks/find')
 	.post(function(req, res) {
-		//Truck.find({'City': req.body.City}), function(err, data) {
-		Truck.find(findShit(), function(err, data) {
+/*
+		//Truck.find({'City': req.body.City}, function(err, data) {
+		//Truck.find(findShit(), function(err, data) {
 			if (err) {
 				console.log(err);
 			}
 			console.log(data);
 			res.json(data);
+		})
+			*/
+		findShit(req, res, function(truck) {
+
 		})
 	});
 
@@ -48,5 +53,6 @@ module.exports = function(router) {
 	});
 }
 function findShit(req, res, callback) {
+	Truck.find{}
 	{'City': req.body.City}
 }

@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var truckSchema = new Schema({
 	Name: String,
 	Type: Number,
-	Location: {
+		Location: {
 		Longitude: Number,
 		Latitude: Number
 	},
