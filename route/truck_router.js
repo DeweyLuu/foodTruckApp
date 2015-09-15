@@ -53,6 +53,13 @@ module.exports = function(router) {
 	});
 }
 function findShit(req, res, callback) {
-	Truck.find{}
-	{'City': req.body.City}
+	Truck.find({'City': req.body.City} || {'Type': 0x80})
+		.exec(function(err, data) {
+			if (err) {
+				console.log(err);
+			}
+			console.log(data);
+			res.json(data);
+		})
+	//{'City': req.body.City}
 }
