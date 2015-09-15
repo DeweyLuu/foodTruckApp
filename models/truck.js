@@ -5,9 +5,9 @@ var truckSchema = new Schema({
 	Name: String,
 	Type: Number,
 		Location: {
-		Longitude: Number,
-		Latitude: Number
-	},
+			Longitude: Number,
+			Latitude: Number
+		},
 	City: String
 });
 
