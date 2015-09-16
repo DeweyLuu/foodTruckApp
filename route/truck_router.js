@@ -24,12 +24,17 @@ module.exports = function(router) {
 	router.route('/trucks/cities')
 	.get(function(req, res) {
 		var results = {};
+		var anotherresult = [];
 		Truck.find({}, function(err, data) {
 			data.forEach(function(thecity) {
 				console.log(thecity.City);
+
 				results[thecity.City] = thecity.City;
 			})
-			res.send(JSON.stringify(results));
+			console.log(results);
+			anotherresult.push(results);
+			//res.send(JSON.stringify(results));
+			res.send(JSON.stringify(anotherresult));
 		});
 	})
 
