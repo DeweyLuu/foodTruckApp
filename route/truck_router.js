@@ -53,7 +53,7 @@ module.exports = function(router) {
 	});
 }
 function findShit(req, res, callback) {
-	Truck.find({'City': req.body.City} || {'Type': 0x80})
+	Truck.find({'City': req.body.City} || {'Type': req.body.Type})
 		.exec(function(err, data) {
 			if (err) {
 				console.log(err);
