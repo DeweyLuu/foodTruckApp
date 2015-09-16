@@ -29,7 +29,7 @@ module.exports = function(router) {
 				console.log(thecity.City);
 				results[thecity.City] = thecity.City;
 			})
-			res.send(results);
+			res.send(JSON.stringify(results));
 		});
 	})
 
