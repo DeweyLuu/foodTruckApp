@@ -8,7 +8,7 @@ var Truck = require('../models/truck.js');
 module.exports = function(router) {
 	router.use(bodyParser.json());
 
-	router.route('/')
+	router.route('/trucks')
 	.get(function(req, res) {
 		Truck.find({}, function(err, data) {
 			if (err) {
