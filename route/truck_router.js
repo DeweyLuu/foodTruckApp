@@ -28,13 +28,14 @@ module.exports = function(router) {
 		Truck.find({}, function(err, data) {
 			data.forEach(function(thecity) {
 				console.log(thecity.City);
-
+				anotherresult.push(thecity.City);
 				results[thecity.City] = thecity.City;
 			})
 			console.log(results);
 			anotherresult.push(results);
 			//res.send(JSON.stringify(results));
-			res.send(JSON.stringify(anotherresult));
+			console.log(anotherresult);
+			res.send(anotherresult);
 		});
 	})
 
