@@ -7,7 +7,7 @@ app.use(express.static(__dirname));
 
 var truckRoute = express.Router();
 
-var theDb = process.env.MONGOLAB_URI || 'mongodb://' + process.env.MONGOUSER + ':' +
+var theDb = 'mongodb://foodtrucks:starbucks99@ds027819.mongolab.com:27819/foodtrucks' || 'mongodb://' + process.env.MONGOUSER + ':' +
 	process.env.MONGOPW + '@ds027819.mongolab.com:27819/foodtrucks';
 
 mongoose.connect(theDb, function(err) {
