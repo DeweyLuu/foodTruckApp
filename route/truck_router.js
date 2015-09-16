@@ -21,6 +21,16 @@ module.exports = function(router) {
 		});
 	})
 
+	router.route('/trucks/:name', function(req, res) {
+		var theName = req.params.user;
+		Truck.find({Name: theName}, function(err, data) {
+			if (err) {
+				console.log(err);
+			}
+			res.json({msg: 'found!'});
+		})
+	});
+
 	router.route('/trucks/find')
 	.post(function(req, res) {
 /*
