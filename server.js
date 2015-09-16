@@ -12,7 +12,7 @@ process.env.MONGO_URL = 'mongodb://localhost/foodtruck';
 
 mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/foodtruck');
 */
-var theDb = 'mongodb://foodtrucks:starbucks99@ds027819.mongolab.com:27819/foodtrucks' || process.env.MONGO_URL;
+var theDb = process.env.MONGOLAB_URI;
 /*
 var theDb = process.env.MONGO_URL =  'mongodb://' + process.env.MONGOUSER + ':' +
 	process.env.MONGOPW + '@ds027819.mongolab.com:27819/foodtrucks' || process.env.MONGO_URL;
