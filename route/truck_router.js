@@ -32,7 +32,7 @@ module.exports = function(router) {
 				results[thecity.City] = thecity.City;
 			})
 			console.log(results);
-			anotherresult.push(results);
+			//anotherresult.push(results);
 			//res.send(JSON.stringify(results));
 			console.log(anotherresult);
 			res.send(anotherresult);
