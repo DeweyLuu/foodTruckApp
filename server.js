@@ -26,6 +26,6 @@ require('./route/truck_router.js')(truckRoute);
 
 app.use('/api', truckRoute);
 
-app.listen(port, function() {
+app.listen(process.env.PORT || port, function() {
 	console.log('server is on ' + port);
 });
