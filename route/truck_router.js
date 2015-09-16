@@ -21,6 +21,18 @@ module.exports = function(router) {
 		});
 	})
 
+	router.route('/trucks/cities')
+	.get(function(req, res) {
+		var results = {};
+		Truck.find({}, function(err, data) {
+			data.forEach(function(thecity) {
+				console.log(thecity.City);
+				results[thecity.City] = thecity.City;
+			})
+			res.send(results);
+		});
+	})
+
 	router.route('/trucks/:name', function(req, res) {
 		var theName = req.params.user;
 		Truck.find({Name: theName}, function(err, data) {
