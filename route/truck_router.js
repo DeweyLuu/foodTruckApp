@@ -40,6 +40,44 @@ module.exports = function(router) {
 		});
 	})
 
+	router.route('/trucks/types')
+	.get(function(req, res) {
+		var results = {};
+		var resultToSend = [];
+		var types = [
+			{Italian: '0x01'},
+			{Mexican: '0x2'},
+			{Chinese: '0x4'},
+			{Indian: '0x8'},
+			{Thai: '0x10'},
+			{Japanese: '0x20'},
+			{Greek: '0x40'},
+			{American: '0x80'},
+  		{Spanish: '0x100'},
+  		{French: '0x200'},
+  		{Mediterranean: '0x400'},
+  		{Lebanese: '0x800'},
+  		{Vietnamese: '0x1000'},
+  		{Korean: '0x2000'},
+  		{Turkish: '0x4000'},
+  		{Moroccan: '0x8000'},
+  		{Soul: '0x10000'},
+  		{Caribbean: '0x20000'},
+  		{German: '0x40000'}
+		];
+
+		for (var cuisine in types) {
+			results[cuisine] = types[cuisine];
+			resultToSend.push();
+		}
+		var typeToSend = JSON.stringify(types);
+		console.log(resultToSend);
+		console.log(JSON.stringify(types));
+		console.log(types);
+		//res.send(JSON.stringify(results));
+		res.send(JSON.stringify(types));
+	})
+
 	router.route('/trucks/:name', function(req, res) {
 		var theName = req.params.user;
 		Truck.find({Name: theName}, function(err, data) {
