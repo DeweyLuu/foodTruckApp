@@ -29,10 +29,10 @@ module.exports = function(router) {
 			data.forEach(function(thecity) {
 				console.log(thecity.City);
 				//results[thecity.City] = thecity.City;
-				results.city = thecity.City;
-				anotherresult.push(JSON.stringify(results));
+				//results.city = thecity.City;
+				anotherresult.push(thecity.City);
 			})
-			console.log(results);
+			//console.log(results);
 			//anotherresult.push(results);
 			//res.send(JSON.stringify(results));
 			console.log(anotherresult);
