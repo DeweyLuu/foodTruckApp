@@ -28,8 +28,9 @@ module.exports = function(router) {
 		Truck.find({}, function(err, data) {
 			data.forEach(function(thecity) {
 				console.log(thecity.City);
-				anotherresult.push(thecity.City);
-				results[thecity.City] = thecity.City;
+				//results[thecity.City] = thecity.City;
+				results.city = thecity.City;
+				anotherresult.push(JSON.stringify(results));
 			})
 			console.log(results);
 			//anotherresult.push(results);
