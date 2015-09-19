@@ -2,9 +2,12 @@ var express = require('express');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var cuisineTypes = require('./cuisineTypes.js');
+var returnTypes = require('./returnTypes.js');
 
 var bodyParser = require('body-parser');
 var Truck = require('../models/truck.js');
+
+var sendThat = [];
 
 module.exports = function(router) {
 	router.use(bodyParser.json());
@@ -59,19 +62,24 @@ module.exports = function(router) {
 
 	router.route('/trucks/find')
 	.post(function(req, res) {
-/*
 		//Truck.find({'City': req.body.City}, function(err, data) {
-		//Truck.find(findShit(), function(err, data) {
+		var type = req.body.Type;
+		var name = req.body.Name;
+		var location = req.body.Location;
+		var city = req.body.City;
+		var distance = req.body.Distance;
+
+		//findShit(name, type, location, city, distance);
+
+		Truck.find({}, function(err, data) {
 			if (err) {
 				console.log(err);
+			} else {
+				findShit(name, type, location, city, distance);
+				res.send(sendThat);
 			}
-			console.log(data);
-			res.json(data);
 		})
-			*/
-		findShit(req, res, function(truck) {
 
-		})
 	});
 
 	router.route('/trucks/add')
@@ -88,14 +96,16 @@ module.exports = function(router) {
 		});
 	});
 }
-function findShit(req, res, callback) {
-	Truck.find({'City': req.body.City} || {'Type': req.body.Type})
-		.exec(function(err, data) {
-			if (err) {
-				console.log(err);
-			}
-			console.log(data);
-			res.json(data);
-		})
-	//{'City': req.body.City}
+
+function findShit(name, type, location, city, distance) {
+
+	cuisineTypes.forEach(function(getThat) {
+		if(type & getThat.value) {
+			var theResult = {};
+			console.log(getThat.value);
+			theResult.Type = getThat.value;
+			sendThat.push(theResult);
+		}
+	})
+	console.log(sendThat);
 }
