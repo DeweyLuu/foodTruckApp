@@ -32,13 +32,8 @@ module.exports = function(router) {
 		Truck.find({}, function(err, data) {
 			data.forEach(function(thecity) {
 				console.log(thecity.City);
-				//results[thecity.City] = thecity.City;
-				//results.city = thecity.City;
 				anotherresult.push(thecity.City);
 			})
-			//console.log(results);
-			//anotherresult.push(results);
-			//res.send(JSON.stringify(results));
 			console.log(anotherresult);
 			res.send(anotherresult);
 		});
@@ -62,21 +57,19 @@ module.exports = function(router) {
 
 	router.route('/trucks/find')
 	.post(function(req, res) {
-		//Truck.find({'City': req.body.City}, function(err, data) {
 		var type = req.body.Type;
 		var name = req.body.Name;
 		var location = req.body.Location;
 		var city = req.body.City;
 		var distance = req.body.Distance;
-
-		//findShit(name, type, location, city, distance);
-
 		Truck.find({}, function(err, data) {
 			if (err) {
 				console.log(err);
 			} else {
-				findShit(name, type, location, city, distance);
-				res.send(sendThat);
+				var answer = findShit(name, type, location, city, distance, data);
+				//res.send(sendThat);
+				console.log(answer);
+				res.send(answer);
 			}
 		})
 
@@ -97,15 +90,14 @@ module.exports = function(router) {
 	});
 }
 
-function findShit(name, type, location, city, distance) {
-
-	cuisineTypes.forEach(function(getThat) {
-		if(type & getThat.value) {
-			var theResult = {};
-			console.log(getThat.value);
-			theResult.Type = getThat.value;
-			sendThat.push(theResult);
+function findShit(name, type, location, city, distance, data) {
+	var resultOne = [];
+	data.forEach(function(returnIt) {
+		if((type & returnIt.Type) > 0) {
+			resultOne.push(returnIt);
+				//console.log(returnIt);
 		}
 	})
-	console.log(sendThat);
+	return resultOne;
 }
+
