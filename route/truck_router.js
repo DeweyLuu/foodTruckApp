@@ -66,7 +66,7 @@ module.exports = function(router) {
 			if (err) {
 				console.log(err);
 			} else {
-				var answer = findShit(name, type, location, city, distance, data);
+				var answer = findStuff(name, type, location, city, distance, data);
 				//res.send(sendThat);
 				console.log(answer);
 				res.send(answer);
