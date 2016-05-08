@@ -90,7 +90,7 @@ module.exports = function(router) {
 	});
 }
 
-function findShit(name, type, location, city, distance, data) {
+function findStuff(name, type, location, city, distance, data) {
 	var resultOne = [];
 	data.forEach(function(returnIt) {
 		if((type & returnIt.Type) > 0) {
